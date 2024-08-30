@@ -67,3 +67,17 @@ exports.updateshirt=async(req,res)=>{
         })
     }
 }
+exports.getoneshirt=async(req,res)=>{
+    try {
+        const shirt=await products.findOne({_id:req.params.id})
+        res.status(200).send({
+            Msg:"this is the Tshirt",
+            shirt
+        })
+    } catch (error) {
+        res.status(500).send({
+            Msg:"falied to get the shirt",
+            error
+        })
+    }
+}
